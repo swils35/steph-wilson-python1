@@ -139,7 +139,7 @@ Shall be lifted—nevermore!'''
 # a function that takes a long string and breaks it into a list of words
 # this is what quick-and-dirty data cleaning looks like, friends 
 def break_into_list_of_words(string):
-	# vvv YOU DO NOT HAVE TO CHANGE ANYTHING IN HERE vvv
+	
 	list_of_words = []
 	# break by newlines to get a list of lines
 	list_of_lines = string.split('\n')
@@ -170,10 +170,10 @@ def break_into_list_of_words(string):
 		list_of_words[index] = list_of_words[index].strip("!")
 		list_of_words[index] = list_of_words[index].strip("’")
 	return list_of_words
-	# ^^^ YOU DO NOT HAVE TO CHANGE ANYTHING IN HERE ^^^
 
-# this function takes in a string and a list and counts how many times that
-# string shows up in that list
+
+# this function takes the list and counts how many times
+# a given string is in the list.
 def count_how_many_words(word_list, counting_string):
     count = 0
     word_list = break_into_list_of_words(THE_RAVEN)
@@ -182,24 +182,27 @@ def count_how_many_words(word_list, counting_string):
         if (word == counting_string):
             count+= 1
         
-    return count# this is just here so the program still compiles
+    return count 
 
 def main():
     words = break_into_list_of_words(THE_RAVEN)
+    
+    # variables for each variance of the strings
     num_times_cap_raven = count_how_many_words(words, "Raven")
     num_times_lower_raven = count_how_many_words(words, "raven")
     num_times_cap_nevermore = count_how_many_words(words, "Nevermore")
     num_times_lower_nevermore = count_how_many_words(words, "nevermore")
     
+    # adding the raven variables together and printing the sum for correct
+    # count.    
     print("The word 'Raven' appears in the poem: ",
           num_times_cap_raven + num_times_lower_raven, "times.")
     
+    # adding the nevermore variables together and printing the sum for correct
+    # count. 
     print("The word 'Nevermore' appears in the poem: ",
           num_times_cap_nevermore + num_times_lower_nevermore, "times.")
 
-
-    
-	# print(words)
 
 if __name__ == "__main__":
     main()
